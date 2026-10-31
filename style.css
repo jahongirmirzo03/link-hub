@@ -1,0 +1,556 @@
+/* ==========================================================================
+   SHAXSIY LINKLAR MARKAZI (LINK HUB)
+   Muallif: Mirzaliyev Jahongirmirzo
+   Dizayn uslubi: Glassmorphism / Dark Modern UI
+   ========================================================================== */
+
+/* --- O'zgaruvchilar (Design Tokens) --- */
+:root {
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  /* Ranglar palitrasi */
+  --bg-primary: #070913;
+  --bg-card: rgba(255, 255, 255, 0.04);
+  --bg-card-hover: rgba(255, 255, 255, 0.09);
+  --border-card: rgba(255, 255, 255, 0.09);
+  --border-card-hover: rgba(99, 102, 241, 0.45);
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+
+  /* Gradientlar & Urg'u ranglar */
+  --primary-accent: #6366f1;
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --fellow-gradient: linear-gradient(135deg, #0ea5e9 0%, #10b981 100%);
+  --glow-color: rgba(99, 102, 241, 0.25);
+
+  /* O'lchamlar & Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+
+  /* O'tishlar va Soyalar */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --shadow-hover: 0 16px 36px -10px rgba(99, 102, 241, 0.35);
+}
+
+/* --- Reset va Asosiy sozlamalar --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 16px 48px;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Orqa Fondagi Ambient Glow (Chiroqli nuqtalar) --- */
+.ambient-glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  animation: floatAmbient 18s ease-in-out infinite alternate;
+}
+
+.glow-1 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, #6366f1 0%, transparent 70%);
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.glow-2 {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, #a855f7 0%, transparent 70%);
+  bottom: 10%;
+  left: -60px;
+  animation-duration: 22s;
+}
+
+.glow-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #0ea5e9 0%, transparent 70%);
+  top: 40%;
+  right: -60px;
+  animation-duration: 20s;
+}
+
+@keyframes floatAmbient {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, 30px) scale(1.08); }
+  100% { transform: translate(-20px, -20px) scale(0.95); }
+}
+
+/* --- Asosiy Konteyner --- */
+.hub-container {
+  width: 100%;
+  max-width: 580px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* --- Yuqori Navigation (Share Button) --- */
+.top-nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px 0;
+}
+
+.action-btn {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-card);
+  color: var(--text-main);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.action-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px) scale(1.05);
+  color: #fff;
+}
+
+.action-btn:active {
+  transform: translateY(0) scale(0.96);
+}
+
+/* --- 1. Profil Qismi --- */
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 8px 12px 4px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.profile-img {
+  width: 110px;
+  height: 110px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  padding: 3px;
+  background: var(--primary-gradient);
+  box-shadow: 0 0 25px rgba(99, 102, 241, 0.4), inset 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: transform var(--transition-smooth);
+}
+
+.profile-card:hover .profile-img {
+  transform: scale(1.04) rotate(2deg);
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #10b981;
+  border: 2px solid var(--bg-primary);
+  box-shadow: 0 0 10px #10b981;
+}
+
+.profile-name {
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+/* Badjlar (Roles & Fellows) */
+.badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.role-badge, .fellow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.role-badge {
+  background: rgba(99, 102, 241, 0.12);
+  color: #c7d2fe;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.fellow-badge {
+  background: rgba(14, 165, 233, 0.12);
+  color: #7dd3fc;
+  border: 1px solid rgba(14, 165, 233, 0.35);
+}
+
+.profile-bio {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  max-width: 440px;
+}
+
+/* --- 2. Asosiy Linklar Ro'yxati --- */
+.links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Shaffof Glassmorphism Link Tugmasi */
+.link-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-card);
+  text-decoration: none;
+  color: var(--text-main);
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-smooth);
+  overflow: hidden;
+}
+
+/* Yengil nur akslanishi effekti */
+.link-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.75s ease;
+}
+
+.link-card:hover::before {
+  left: 140%;
+}
+
+/* Hover effekti */
+.link-card:hover {
+  transform: translateY(-3px) scale(1.015);
+  background: var(--bg-card-hover);
+  border-color: var(--border-card-hover);
+  box-shadow: var(--shadow-hover);
+}
+
+.link-card:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* Link ichidagi Ikonka */
+.link-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-right: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform var(--transition-fast);
+}
+
+.link-card:hover .link-icon {
+  transform: scale(1.08);
+}
+
+/* Ikonkalarga xos gradientlar va ranglar */
+.link-telegram .link-icon {
+  background: linear-gradient(135deg, rgba(34, 158, 217, 0.25), rgba(34, 158, 217, 0.08));
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.link-hub .link-icon {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(99, 102, 241, 0.15));
+  color: #c084fc;
+  border-color: rgba(192, 132, 252, 0.35);
+}
+
+.link-resources .link-icon {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(16, 185, 129, 0.08));
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.3);
+}
+
+.link-portfolio .link-icon {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(245, 158, 11, 0.08));
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+.link-linkedin .link-icon {
+  background: linear-gradient(135deg, rgba(10, 102, 194, 0.25), rgba(10, 102, 194, 0.08));
+  color: #60a5fa;
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.link-github .link-icon {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.03));
+  color: #f1f5f9;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.link-email .link-icon {
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.25), rgba(244, 63, 94, 0.08));
+  color: #fb7185;
+  border-color: rgba(251, 113, 133, 0.3);
+}
+
+/* Maxsus ajratib ko'rsatilgan tugma (Pulse effekti) */
+.highlight-pulse {
+  border-color: rgba(168, 85, 247, 0.45);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.18);
+}
+
+/* Link matnlari */
+.link-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 3px;
+  min-width: 0;
+}
+
+.title-with-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.link-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pill-featured {
+  background: var(--primary-gradient);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.05em;
+}
+
+.link-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* O'ng tarafdagi o'tish strelkasi */
+.link-arrow {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-left: 12px;
+  transition: all var(--transition-fast);
+}
+
+.link-card:hover .link-arrow {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* --- Pastki Footer & Ijtimoiy Tugmalar --- */
+.hub-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding-top: 14px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-link {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-card);
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.social-link:hover {
+  color: #ffffff;
+  background: var(--bg-card-hover);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px) scale(1.08);
+}
+
+.social-link:active {
+  transform: scale(0.95);
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+/* --- Toast Xabarnoma --- */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 80px);
+  opacity: 0;
+  pointer-events: none;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(99, 102, 241, 0.3);
+  padding: 12px 22px;
+  border-radius: var(--radius-full);
+  z-index: 999;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast.show {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #f8fafc;
+}
+
+.toast-icon {
+  color: #10b981;
+  font-size: 1.1rem;
+}
+
+/* --- Responsivlik (Mobile-First Moslashuv) --- */
+@media (max-width: 480px) {
+  body {
+    padding: 18px 12px 36px;
+  }
+
+  .hub-container {
+    gap: 22px;
+  }
+
+  .profile-name {
+    font-size: 1.35rem;
+  }
+
+  .profile-bio {
+    font-size: 0.88rem;
+  }
+
+  .link-card {
+    padding: 14px 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .link-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+    margin-right: 12px;
+  }
+
+  .link-title {
+    font-size: 0.93rem;
+  }
+
+  .link-desc {
+    font-size: 0.75rem;
+  }
+
+  .role-badge, .fellow-badge {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+  }
+}

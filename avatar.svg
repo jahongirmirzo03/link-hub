@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="50%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd29d" />
+      <stop offset="100%" stop-color="#f5b977" />
+    </linearGradient>
+    <linearGradient id="suitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Orqa fon doirasi -->
+  <circle cx="120" cy="120" r="120" fill="url(#bgGrad)" />
+
+  <!-- Ichki naqsh nurlari -->
+  <circle cx="120" cy="120" r="105" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <g filter="url(#softShadow)">
+    <!-- Kostyum / Elka qismi -->
+    <path d="M48 240 C52 188 82 170 120 170 C158 170 188 188 192 240 Z" fill="url(#suitGrad)" />
+    
+    <!-- Ko'ylak yoqasi -->
+    <polygon points="120,172 102,205 138,205" fill="url(#shirtGrad)" />
+    <polygon points="120,205 114,240 126,240" fill="#6366f1" />
+
+    <!-- Bo'yin -->
+    <rect x="106" y="142" width="28" height="34" rx="6" fill="url(#skinGrad)" />
+
+    <!-- Bosh / Yuz -->
+    <ellipse cx="120" cy="108" rx="42" ry="48" fill="url(#skinGrad)" />
+
+    <!-- Sochlar -->
+    <path d="M76 100 C74 65 92 50 120 50 C150 50 166 65 164 100 C160 92 150 82 135 84 C115 86 105 78 88 88 C80 94 77 98 76 100 Z" fill="#1e1b4b" />
+    <path d="M76 96 C76 112 79 122 81 126 C79 118 78 108 79 98 Z" fill="#1e1b4b" />
+    <path d="M164 96 C164 112 161 122 159 126 C161 118 162 108 161 98 Z" fill="#1e1b4b" />
+
+    <!-- Quloqlar -->
+    <circle cx="78" cy="112" r="8" fill="url(#skinGrad)" />
+    <circle cx="162" cy="112" r="8" fill="url(#skinGrad)" />
+
+    <!-- Ko'zoynak ramkasi -->
+    <!-- Chap linza -->
+    <rect x="91" y="98" width="24" height="18" rx="6" fill="rgba(255,255,255,0.2)" stroke="#0f172a" stroke-width="3" />
+    <!-- O'ng linza -->
+    <rect x="125" y="98" width="24" height="18" rx="6" fill="rgba(255,255,255,0.2)" stroke="#0f172a" stroke-width="3" />
+    <!-- Ko'prikcha -->
+    <line x1="115" y1="106" x2="125" y2="106" stroke="#0f172a" stroke-width="3" />
+    <line x1="78" y1="104" x2="91" y2="104" stroke="#0f172a" stroke-width="2.5" />
+    <line x1="149" y1="104" x2="162" y2="104" stroke="#0f172a" stroke-width="2.5" />
+
+    <!-- Ko'zlar -->
+    <circle cx="103" cy="107" r="3" fill="#0f172a" />
+    <circle cx="137" cy="107" r="3" fill="#0f172a" />
+    <circle cx="104" cy="106" r="1" fill="#ffffff" />
+    <circle cx="138" cy="106" r="1" fill="#ffffff" />
+
+    <!-- Qoshlar -->
+    <path d="M92 92 Q103 89 114 93" fill="none" stroke="#1e1b4b" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M126 93 Q137 89 148 92" fill="none" stroke="#1e1b4b" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Burun -->
+    <path d="M120 110 L118 120 L122 120" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Tabassum -->
+    <path d="M110 130 Q120 138 130 130" fill="none" stroke="#9a3412" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+</svg>

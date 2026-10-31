@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mirzaliyev Jahongirmirzo | Shaxsiy Linklar Markazi</title>
+  <meta name="description" content="Mirzaliyev Jahongirmirzo - Informatika fani o'qituvchisi, Teach for Uzbekistan Fellow shaxsiy resurslari va loyihalari.">
+  
+  <!-- Favicon / Ikonka -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Asosiy uslublar -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Orqa fon nurlari (Ambient glow) -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Asosiy Konteyner -->
+  <main class="hub-container">
+    
+    <!-- Yuqori qismdagi Ulashish (Share) tugmasi -->
+    <header class="top-nav">
+      <button id="shareBtn" class="action-btn" title="Sahifani ulashish" aria-label="Havolani ulashish">
+        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+      </button>
+    </header>
+
+    <!-- 1. Profil Ma'lumotlari -->
+    <section class="profile-card">
+      <div class="avatar-wrapper">
+        <!-- Mahalliy vektor avatar yoki o'zingizning shaxsiy rasmingiz (masalan, avatar.jpg) -->
+        <img 
+          src="avatar.svg" 
+          alt="Mirzaliyev Jahongirmirzo" 
+          class="profile-img"
+          id="profileAvatar"
+          onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Jahongirmirzo+Mirzaliyev&background=6366f1&color=fff&size=200&bold=true';"
+        />
+        <span class="status-indicator" title="Faol"></span>
+      </div>
+
+      <h1 class="profile-name">Mirzaliyev Jahongirmirzo</h1>
+
+      <div class="badge-container">
+        <span class="role-badge">
+          <i class="fa-solid fa-chalkboard-user"></i> Informatika fani o'qituvchisi
+        </span>
+        <span class="fellow-badge">
+          <i class="fa-solid fa-award"></i> Teach for Uzbekistan Fellow
+        </span>
+      </div>
+
+      <p class="profile-bio">
+        Ta'lim va zamonaviy texnologiyalarni birlashtiruvchi loyihalar muallifi.
+      </p>
+    </section>
+
+    <!-- 2. Asosiy Linklar Ro'yxati -->
+    <section class="links-list" aria-label="Foydali havolalar">
+      
+      <!-- Havola 1: Telegram -->
+      <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="link-card link-telegram">
+        <div class="link-icon">
+          <i class="fa-brands fa-telegram"></i>
+        </div>
+        <div class="link-content">
+          <span class="link-title">Telegram kanal / Profil</span>
+          <span class="link-desc">Yangiliklar, dars materiallari va blog</span>
+        </div>
+        <div class="link-arrow">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </a>
+
+      <!-- Havola 2: Fellows Knowledge Hub -->
+      <a href="#" target="_blank" rel="noopener noreferrer" class="link-card link-hub highlight-pulse">
+        <div class="link-icon">
+          <i class="fa-solid fa-rocket"></i>
+        </div>
+        <div class="link-content">
+          <div class="title-with-pill">
+            <span class="link-title">Fellows Knowledge Hub</span>
+            <span class="pill-featured">Asosiy</span>
+          </div>
+          <span class="link-desc">TFU stipendiatlari va o'qituvchilar platformasi</span>
+        </div>
+        <div class="link-arrow">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </a>
+
+      <!-- Havola 3: Dars ishlanmalari -->
+      <a href="#" target="_blank" rel="noopener noreferrer" class="link-card link-resources">
+        <div class="link-icon">
+          <i class="fa-solid fa-book-open-reader"></i>
+        </div>
+        <div class="link-content">
+          <span class="link-title">Dars ishlanmalari va resurslar</span>
+          <span class="link-desc">Metodik qo'llanmalar, slaydlar va dars rejalari</span>
+        </div>
+        <div class="link-arrow">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </a>
+
+      <!-- Havola 4: Portfolio va Veb-loyihalar -->
+      <a href="#" target="_blank" rel="noopener noreferrer" class="link-card link-portfolio">
+        <div class="link-icon">
+          <i class="fa-solid fa-laptop-code"></i>
+        </div>
+        <div class="link-content">
+          <span class="link-title">Portfolio va Veb-loyihalar</span>
+          <span class="link-desc">Ta'limiy dasturlar, veb-saytlar va ishlar</span>
+        </div>
+        <div class="link-arrow">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </a>
+
+      <!-- Havola 5: LinkedIn -->
+      <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="link-card link-linkedin">
+        <div class="link-icon">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+        <div class="link-content">
+          <span class="link-title">LinkedIn Profili</span>
+          <span class="link-desc">Kasbiy faoliyat, tarmoq va tajribalar</span>
+        </div>
+        <div class="link-arrow">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </a>
+
+      <!-- Havola 6: GitHub -->
+      <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="link-card link-github">
+        <div class="link-icon">
+          <i class="fa-brands fa-github"></i>
+        </div>
+        <div class="link-content">
+          <span class="link-title">GitHub Repozitoriylari</span>
+          <span class="link-desc">Ochiq kodli loyihalar va kod namunalari</span>
+        </div>
+        <div class="link-arrow">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </a>
+
+      <!-- Havola 7: Bog'lanish (Email) -->
+      <a href="mailto:jahongirmirzo@example.com" class="link-card link-email">
+        <div class="link-icon">
+          <i class="fa-solid fa-envelope-open-text"></i>
+        </div>
+        <div class="link-content">
+          <span class="link-title">Bog'lanish (Email)</span>
+          <span class="link-desc">Hamkorlik va takliflar uchun to'g'ridan-to'g'ri xat</span>
+        </div>
+        <div class="link-arrow">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </a>
+
+    </section>
+
+    <!-- Pastki Ijtimoiy Tarmoqlar Paneli -->
+    <footer class="hub-footer">
+      <div class="social-icons">
+        <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram" class="social-link" title="Telegram">
+          <i class="fa-brands fa-telegram"></i>
+        </a>
+        <a href="https://linkedin.com/in/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link" title="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub" class="social-link" title="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="mailto:jahongirmirzo@example.com" aria-label="Email" class="social-link" title="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+
+      <p class="copyright">
+        &copy; <span id="currentYear"></span> Mirzaliyev Jahongirmirzo. Barcha huquqlar himoyalangan.
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- Toast Xabarnoma (Havola nusxalanganda chiqadi) -->
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <div class="toast-content">
+      <i class="fa-solid fa-circle-check toast-icon"></i>
+      <span id="toastMessage">Havola vaqtinchalik xotiraga nusxalandi!</span>
+    </div>
+  </div>
+
+  <!-- Skriptlar -->
+  <script src="script.js"></script>
+</body>
+</html>
