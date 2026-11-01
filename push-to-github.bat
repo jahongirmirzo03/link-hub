@@ -1,25 +1,29 @@
 @echo off
-title GitHub Repozitoriyga Yuklash (Push)
+title GitHub-ga Push qilish: link-hub
 echo ========================================================
-echo   Loyihani GitHub-ga yuklash: link-hub
+echo   Loyihani GitHub repozitoriyga push qilish
 echo ========================================================
-set "PATH=%LOCALAPPDATA%\Programs\Git\cmd;%PATH%"
+echo.
+set "PATH=%LOCALAPPDATA%\Programs\Git\cmd;C:\Program Files\Git\cmd;%PATH%"
 
-git add .
-git commit -m "Initial commit: Shaxsiy linklar markazi" 2>nul
+git config --local credential.helper manager
 git branch -M main
 
-echo GitHub-ga yuklanmoqda...
-echo Agar brauzerda oyna ochilsa, 'Sign in with your browser' tugmasini bosing.
+echo O'zgarishlar saqlanmoqda (commit)...
+git add .
+git commit -m "Redesign: Complete shadcn/ui professional transformation" 2>nul
+
+echo GitHub-ga push qilinmoqda...
+echo Agar brauzer yoki oyna ochilsa, 'Sign in with your browser' tugmasini bosing.
 echo.
 git push -u origin main
 
 echo.
 echo ========================================================
 if %ERRORLEVEL% EQU 0 (
-    echo [MUVAFFAQIYAT] Loyiha GitHub-ga yuklandi!
+    echo [MUVAFFAQIYAT] Loyiha GitHub-ga to'liq push qilindi!
 ) else (
-    echo [OGOHLANTIRISH] Yuklashda xatolik yuz berdi.
+    echo [XATOLIK] Push amalga oshmadi.
 )
 echo ========================================================
 pause

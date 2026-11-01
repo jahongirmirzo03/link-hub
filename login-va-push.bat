@@ -15,6 +15,8 @@ echo ========================================================
 "C:\Program Files\GitHub CLI\gh.exe" auth setup-git
 set "PATH=%LOCALAPPDATA%\Programs\Git\cmd;%PATH%"
 git branch -M main
+git add .
+git commit -m "Redesign: Complete shadcn/ui professional transformation" 2>nul
 git push -u origin main
 echo.
 echo ========================================================
